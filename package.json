@@ -1,0 +1,48 @@
+{
+  "name": "pdf-inspector-service",
+  "version": "0.1.0",
+  "description": "Authenticated HTTP API, web UI, and CLI for PDF classification and Markdown extraction (pdf-inspector)",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mgrsc/pdf-inspector-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mgrsc/pdf-inspector-service/issues"
+  },
+  "homepage": "https://github.com/Mgrsc/pdf-inspector-service#readme",
+  "keywords": [
+    "pdf",
+    "markdown",
+    "pdf-inspector",
+    "ocr-routing",
+    "api",
+    "cli"
+  ],
+  "engines": {
+    "bun": ">=1.3.0"
+  },
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/cli.ts serve",
+    "cli": "bun run src/cli.ts",
+    "test": "bun test",
+    "web:dev": "bun --cwd web run dev",
+    "web:build": "bun --cwd web run build",
+    "build:web": "bun --cwd web run build"
+  },
+  "bin": {
+    "pdf-inspector-service": "./src/cli.ts"
+  },
+  "dependencies": {
+    "@firecrawl/pdf-inspector": "^1.12.0",
+    "hono": "^4.13.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "pdf-lib": "^1.17.1",
+    "typescript": "^5.9.3"
+  }
+}

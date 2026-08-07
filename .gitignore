@@ -1,0 +1,64 @@
+# --- dependencies ---
+node_modules/
+web/node_modules/
+jspm_packages/
+.pnp
+.pnp.*
+
+# --- builds / caches ---
+dist/
+web/dist/
+build/
+out/
+coverage/
+.turbo/
+.cache/
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+*.pem
+
+# --- env & secrets ---
+.env
+.env.*
+!.env.example
+!.env.template
+*.local
+
+# --- runtime / logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun-debug.log*
+pids/
+*.pid
+*.seed
+
+# --- OS / editor ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*.swo
+*~
+
+# --- local / agent scratch ---
+.dev/
+.firecrawl/
+.bun/
+.tmp/
+tmp/
+temp/
+
+# --- docker ---
+docker-compose.override.yml

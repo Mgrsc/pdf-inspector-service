@@ -1,0 +1,39 @@
+services:
+  api:
+    image: ghcr.io/mgrsc/pdf-inspector-service:latest
+    pull_policy: always
+    # default: serve (HTTP API + web UI)
+    # CLI: docker compose run --rm -v "$PWD:/data" -w /data api process /data/doc.pdf
+    ports:
+      - "3000:3000"
+    environment:
+      API_KEYS: change-me-to-a-long-random-secret
+      AUTH_DISABLED: "false"
+      MAX_UPLOAD_BYTES: "33554432"
+      MAX_PAGES: "500"
+      CORS_ORIGIN: "*"
+      LOG_LEVEL: info
+      PORT: "3000"
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "bun",
+          "-e",
+          "const r=await fetch('http://127.0.0.1:3000/health'); if(!r.ok) process.exit(1)",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    tmpfs:
+      - /tmp:size=64m,mode=1777

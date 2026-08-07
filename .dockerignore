@@ -1,0 +1,48 @@
+# VCS / CI / local tooling
+.git
+.github
+.dev
+.firecrawl
+.bun
+.idea
+.vscode
+
+# deps & builds (rebuilt in image)
+node_modules
+web/node_modules
+dist
+web/dist
+coverage
+
+# secrets & env
+.env
+.env.*
+!.env.example
+
+# tests & fixtures (not needed at runtime)
+tests
+**/*.test.ts
+**/*.spec.ts
+
+# docs & meta (not needed at runtime)
+*.md
+!web/package.json
+LICENSE
+CONTRIBUTING.md
+SECURITY.md
+docker-compose.yml
+Dockerfile
+.dockerignore
+.gitignore
+
+# logs / OS
+*.log
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# local artifacts
+.firecrawl
+*.pdf
+!web/public/**
